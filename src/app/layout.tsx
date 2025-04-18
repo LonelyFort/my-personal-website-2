@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Crimson_Text } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: '400',
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"]
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const crimsonText = Crimson_Text({
+  weight: '400',
+  variable: "--font-crimson-text",
   subsets: ["latin"],
-});
+})
 
 export const metadata: Metadata = {
   title: "Jeff Liu's Website",
@@ -25,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${ibmPlexMono.variable} ${crimsonText.variable} antialiased`}
       >
         {children}
       </body>
