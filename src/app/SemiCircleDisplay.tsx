@@ -26,8 +26,8 @@ export default function SemiCircleDisplay() {
   }, []);
 
   useEffect(() => {
-    const maxWidth = Math.min(windowSize.width * 0.8, 1280);
-    const maxHeight = Math.min(windowSize.height * 0.5, 1000);
+    const maxWidth = Math.min(windowSize.width * 0.7, 2000);
+    const maxHeight = Math.max(Math.min(windowSize.height * 0.5, 2000), 600); // to prevent over-shrinking
 
     setContainerSize({
       width: maxWidth,
@@ -57,14 +57,12 @@ export default function SemiCircleDisplay() {
           style={{
             width: `${containerSize.width}px`,
             height: `${containerSize.height}px`,
+            // backgroundColor: "red", //placeholder
           }}
         >
           <div
             className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[45px] place-items-center bg-[#967171] font-ibm"
             style={{
-            //   width: `${itemSize}px`,
-            //   height: `${itemSize}px`,
-            //   fontSize: `${itemSize * 0.45}px`,
               left: `calc(50% + ${getX(1)}px)`,
               top: `${getY(1)}px`,
               transform: `translate(-${itemSize * 1.5}px, -${
@@ -79,9 +77,6 @@ export default function SemiCircleDisplay() {
           <div
             className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[45px] place-items-center bg-[#838F6B] font-ibm"
             style={{
-            //   width: `${itemSize}px`,
-            //   height: `${itemSize}px`,
-            //   fontSize: `${itemSize * 0.45}px`,
               left: `calc(50% + ${getX(2)}px)`,
               top: `${getY(2)}px`,
               transform: `translate(-${itemSize * 1.5}px, -${
@@ -96,9 +91,6 @@ export default function SemiCircleDisplay() {
           <div
             className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[45px] place-items-center bg-[#7095A2] font-ibm"
             style={{
-            //   width: `${itemSize}px`,
-            //   height: `${itemSize}px`,
-            //   fontSize: `${itemSize * 0.45}px`,
               left: `calc(50% + ${getX(3)}px)`,
               top: `${getY(3)}px`,
               transform: `translate(-${itemSize * 1.5}px, -${
@@ -113,9 +105,6 @@ export default function SemiCircleDisplay() {
           <div
             className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[45px] place-items-center bg-[#C27BB0] font-ibm"
             style={{
-            //   width: `${itemSize}px`,
-            //   height: `${itemSize}px`,
-            //   fontSize: `${itemSize * 0.45}px`,
               left: `calc(50% + ${getX(4)}px)`,
               top: `${getY(4)}px`,
               transform: `translate(-${itemSize * 1.5}px, -${
@@ -127,6 +116,34 @@ export default function SemiCircleDisplay() {
             <Phone className="w-20 h-20 stroke-[1.5px]" />
           </div>
 
+          <div
+            className="flex flex-col absolute font-crimson"
+            style={{
+              width: `${itemSize * 10}px`,
+              left: `calc(50%)`,
+              top: `calc(50%)`,
+              transform: `translate(-${itemSize * 4.6}px, -${itemSize * 0.2}px)`,
+              // backgroundColor: "blue",
+            }}
+          >
+            <h1 className="text-[90px] text-center">Hi! Im Jeff!</h1>
+          </div>
+          <div
+              className="absolute flex flex-col font-crimson"
+              style={{
+                left: `calc(45%)`,
+                top:`calc(75%)`,
+                fontSize: `${itemSize * 0.90}px`,
+                transform:`translate(-${itemSize * 3.8}px, -${itemSize * 0.2}px)`,
+                // backgroundColor: "purple",
+              }}
+            >
+              <h2>I am a</h2>
+              <ul className="list-disc list-inside">
+                <li>Front-end Software Engineer</li>
+                <li>3D Graphic Enthusiast</li>
+              </ul>
+            </div>
         </div>
       </div>
     </div>

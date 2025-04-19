@@ -10,6 +10,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 ibm: ['var(--font-ibm-plex-mono)'],
+                crimson: ['var(--font-crimson-text)'],
             },
         },
     },
