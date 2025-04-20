@@ -6,7 +6,13 @@ import WorkBag from "../../resources/images/svg/work-bag.svg";
 import Project from "../../resources/images/svg/project.svg";
 import Image from "next/image";
 
-export default function SemiCircleDisplay() {
+interface SemiCircleDisplayProps {
+  handleSectionChange: (currentSection : string) => void;
+}
+
+const SemiCircleDisplay: React.FC<SemiCircleDisplayProps> = ({
+  handleSectionChange
+}) => {
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
@@ -57,11 +63,10 @@ export default function SemiCircleDisplay() {
           style={{
             width: `${containerSize.width}px`,
             height: `${containerSize.height}px`,
-            // backgroundColor: "red", //placeholder
           }}
         >
           <div
-            className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[45px] place-items-center bg-[#967171] font-ibm"
+            className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[40px] place-items-center bg-[#967171] font-ibm hover:cursor-pointer hover:scale-110 hover:transition-transform hover:duration-300 hover:ease-in-out"
             style={{
               left: `calc(50% + ${getX(1)}px)`,
               top: `${getY(1)}px`,
@@ -69,13 +74,14 @@ export default function SemiCircleDisplay() {
                 itemSize * 1.25
               }px)`,
             }}
+            onClick={() => handleSectionChange("about")}
           >
             About
-            <Info className="w-20 h-20 stroke-[1.5px]" />
+            <Info className="w-15 h-15 stroke-[1.5px]" />
           </div>
 
           <div
-            className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[45px] place-items-center bg-[#838F6B] font-ibm"
+            className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[40px] place-items-center bg-[#838F6B] font-ibm hover:cursor-pointer hover:scale-110 hover:transition-transform hover:duration-300 hover:ease-in-out"
             style={{
               left: `calc(50% + ${getX(2)}px)`,
               top: `${getY(2)}px`,
@@ -83,13 +89,14 @@ export default function SemiCircleDisplay() {
                 itemSize * 1.25
               }px)`,
             }}
+            onClick={() => handleSectionChange("experience")}
           >
             Experience
-            <Image src={WorkBag} className="w-25 h-25" alt="" />
+            <Image src={WorkBag} className="w-15 h-15" alt="" />
           </div>
 
           <div
-            className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[45px] place-items-center bg-[#7095A2] font-ibm"
+            className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[40px] place-items-center bg-[#7095A2] font-ibm hover:cursor-pointer hover:scale-110 hover:transition-transform hover:duration-300 hover:ease-in-out"
             style={{
               left: `calc(50% + ${getX(3)}px)`,
               top: `${getY(3)}px`,
@@ -97,13 +104,14 @@ export default function SemiCircleDisplay() {
                 itemSize * 1.25
               }px)`,
             }}
+            onClick={() => handleSectionChange("projects")}
           >
             Projects
-            <Image src={Project} className="w-25 h-25" alt="" />
+            <Image src={Project} className="w-15 h-15" alt="" />
           </div>
 
           <div
-            className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[45px] place-items-center bg-[#C27BB0] font-ibm"
+            className="flex flex-col gap-2 absolute drop-shadow-xl drop-shadow-[#000000] rounded-[45px] border-4 border-black px-10 py-6 text-[40px] place-items-center bg-[#C27BB0] font-ibm hover:cursor-pointer hover:scale-110 hover:transition-transform hover:duration-300 hover:ease-in-out"
             style={{
               left: `calc(50% + ${getX(4)}px)`,
               top: `${getY(4)}px`,
@@ -111,9 +119,10 @@ export default function SemiCircleDisplay() {
                 itemSize * 1.25
               }px)`,
             }}
+            onClick={() => handleSectionChange("contacts")}
           >
             Contacts
-            <Phone className="w-20 h-20 stroke-[1.5px]" />
+            <Phone className="w-15 h-15 stroke-[1.5px]" />
           </div>
 
           <div
@@ -123,7 +132,6 @@ export default function SemiCircleDisplay() {
               left: `calc(50%)`,
               top: `calc(50%)`,
               transform: `translate(-${itemSize * 4.6}px, -${itemSize * 0.2}px)`,
-              // backgroundColor: "blue",
             }}
           >
             <h1 className="text-[90px] text-center">Hi! Im Jeff!</h1>
@@ -133,9 +141,8 @@ export default function SemiCircleDisplay() {
               style={{
                 left: `calc(45%)`,
                 top:`calc(75%)`,
-                fontSize: `${itemSize * 0.90}px`,
+                fontSize: `${itemSize * 0.70}px`,
                 transform:`translate(-${itemSize * 3.8}px, -${itemSize * 0.2}px)`,
-                // backgroundColor: "purple",
               }}
             >
               <h2>I am a</h2>
@@ -149,3 +156,5 @@ export default function SemiCircleDisplay() {
     </div>
   );
 }
+
+export default SemiCircleDisplay;
