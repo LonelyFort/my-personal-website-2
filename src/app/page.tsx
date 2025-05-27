@@ -8,10 +8,16 @@ import About from "./About/About";
 import Experience from "./Experience/Experience";
 import Projects from "./Projects/Projects";
 import Contacts from "./Contacts/Contacts";
+import MobileSideMenu from "./components/MobileSideMenu/MobileSideMenu";
 import { LanguageDropdown } from "./components/LanguageDropdown/LanguageDropdown";
 import { LinkedInLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { House } from "lucide-react";
+import { Info, Phone } from "lucide-react";
+import WorkBag from "../../resources/images/svg/work-bag.svg";
+import Project from "../../resources/images/svg/project.svg";
+import Image from "next/image";
 
 export default function App() {
   const [currentSection, setCurrentSection] = useState("");
@@ -46,7 +52,7 @@ export default function App() {
   };
 
   const loadingScreen = () => {
-    return <Progress value={progress} className="w-[60%]"  />;
+    return <Progress value={progress} className="w-[60%]" />;
   };
 
   const displaySection = () => {
@@ -75,12 +81,45 @@ export default function App() {
     );
   };
 
+  const displayMobileMain = () => {
+    return (
+      <>
+        <h1 className="font-crimson text-[40px] text-center py-4">
+          Hi! I&apos;m Jeff!
+        </h1>
+        <div className="flex flex-col font-crimson items-start text-[24px] mx-auto w-fit">
+          <h2>I am a</h2>
+          <ul className="list-disc list-inside">
+            <li>Front-end Software Engineer</li>
+            <li>3D Graphic Enthusiast</li>
+          </ul>
+        </div>
+        <div className="grid grid-cols-2 grid-rows-2 gap-10 p-6 place-items-center">
+          <div
+            className="drop-shadow-xl drop-shadow-[#000000] rounded-[50%] border-4 border-black p-5 bg-[#967171]"
+          >
+            <Info className="w-[90px] h-[90px] stroke-[1.5px]" />
+          </div>
+          <div className="drop-shadow-xl drop-shadow-[#000000] rounded-[50%] border-4 border-black p-5 bg-[#838F6B]">
+            <Image src={WorkBag} className="w-[90px] h-[90px]" alt="" />
+          </div>
+          <div className="drop-shadow-xl drop-shadow-[#000000] rounded-[50%] border-4 border-black p-5 bg-[#7095A2]">
+            <Image src={Project} className="w-[90px] h-[90px]" alt="" />
+          </div>
+          <div className="drop-shadow-xl drop-shadow-[#000000] rounded-[50%] border-4 border-black p-5 bg-[#C27BB0]">
+            <Phone className="w-[90px] h-[90px] stroke-[1.5px]" />
+          </div>
+        </div>
+      </>
+    );
+  };
+
   return (
     <div>
-      {/*Progress bar for desktop*/}
+      {/*Progress bar*/}
       <div
-        className={`xl:flex flex-col gap-2 hidden h-screen w-full justify-center items-center ${
-          progress === 100 ? "xl:hidden" : ""
+        className={`flex flex-col gap-2 h-screen w-full justify-center items-center ${
+          progress === 100 ? "hidden" : ""
         }`}
       >
         <h2 className="text-[25px]">Loading...</h2>
@@ -136,6 +175,33 @@ export default function App() {
           />
         </div>
       )}
+
+      {/*Mobile*/}
+      <div className={`xl:hidden ${progress !== 100 ? "hidden" : ""}`}>
+        <div className="flex justify-between px-6 py-4">
+          <button className="focus:outline-none bg-none border-none">
+            <House height={40} width={40} strokeWidth={1} />
+          </button>
+          {/* <button className="focus:outline-none bg-none border-none focus:bg-gray-200 ">
+            <Menu height={47} width={47} strokeWidth={1} />
+          </button> */}
+          <MobileSideMenu currentSection={currentSection} handleSectionChange={handleSectionChange} />
+        </div>
+
+        {displayedSection === "about" ? (
+          <About />
+        ) : displayedSection === "experience" ? (
+          <Experience />
+        ) : displayedSection === "projects" ? (
+          <Projects />
+        ) : displayedSection === "contacts" ? (
+          <Contacts />
+        ) : displayedSection === "" ? (
+          displayMobileMain()
+        ) : (
+          <div />
+        )}
+      </div>
     </div>
   );
 }
