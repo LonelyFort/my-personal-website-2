@@ -97,16 +97,26 @@ export default function App() {
         <div className="grid grid-cols-2 grid-rows-2 gap-10 p-6 place-items-center">
           <div
             className="drop-shadow-xl drop-shadow-[#000000] rounded-[50%] border-4 border-black p-5 bg-[#967171]"
+            onClick={() => handleSectionChange("about")}
           >
             <Info className="w-[90px] h-[90px] stroke-[1.5px]" />
           </div>
-          <div className="drop-shadow-xl drop-shadow-[#000000] rounded-[50%] border-4 border-black p-5 bg-[#838F6B]">
+          <div
+            className="drop-shadow-xl drop-shadow-[#000000] rounded-[50%] border-4 border-black p-5 bg-[#838F6B]"
+            onClick={() => handleSectionChange("experience")}
+          >
             <Image src={WorkBag} className="w-[90px] h-[90px]" alt="" />
           </div>
-          <div className="drop-shadow-xl drop-shadow-[#000000] rounded-[50%] border-4 border-black p-5 bg-[#7095A2]">
+          <div
+            className="drop-shadow-xl drop-shadow-[#000000] rounded-[50%] border-4 border-black p-5 bg-[#7095A2]"
+            onClick={() => handleSectionChange("projects")}
+          >
             <Image src={Project} className="w-[90px] h-[90px]" alt="" />
           </div>
-          <div className="drop-shadow-xl drop-shadow-[#000000] rounded-[50%] border-4 border-black p-5 bg-[#C27BB0]">
+          <div
+            className="drop-shadow-xl drop-shadow-[#000000] rounded-[50%] border-4 border-black p-5 bg-[#C27BB0]"
+            onClick={() => handleSectionChange("contacts")}
+          >
             <Phone className="w-[90px] h-[90px] stroke-[1.5px]" />
           </div>
         </div>
@@ -165,7 +175,7 @@ export default function App() {
 
       {displayedSection !== "" && (
         <div
-          className={`fixed bottom-10 left-0 right-0 flex justify-center transition-opacity duration-300 ease-in-out ${
+          className={`xl:flex fixed bottom-10 left-0 right-0 hidden justify-center transition-opacity duration-300 ease-in-out ${
             isTransitioning ? "opacity-0" : "opacity-100"
           }`}
         >
@@ -179,13 +189,16 @@ export default function App() {
       {/*Mobile*/}
       <div className={`xl:hidden ${progress !== 100 ? "hidden" : ""}`}>
         <div className="flex justify-between px-6 py-4">
-          <button className="focus:outline-none bg-none border-none">
+          <button
+            className="focus:outline-none bg-none border-none"
+            onClick={() => handleSectionChange("")}
+          >
             <House height={40} width={40} strokeWidth={1} />
           </button>
-          {/* <button className="focus:outline-none bg-none border-none focus:bg-gray-200 ">
-            <Menu height={47} width={47} strokeWidth={1} />
-          </button> */}
-          <MobileSideMenu currentSection={currentSection} handleSectionChange={handleSectionChange} />
+          <MobileSideMenu
+            currentSection={currentSection}
+            handleSectionChange={handleSectionChange}
+          />
         </div>
 
         {displayedSection === "about" ? (
