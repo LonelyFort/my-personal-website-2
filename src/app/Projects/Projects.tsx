@@ -8,12 +8,6 @@ import Python from "../../../resources/images/svg/python-icon.svg";
 
 import Blender from "../../../resources/images/svg/blender-icon.svg";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 export default function Projects() {
   const techStack = [React, TypeScript, Python];
@@ -98,27 +92,73 @@ export default function Projects() {
               </h1>
             </TabsTrigger>
           </TabsList>
-          <TabsContent value="tech">
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem
-                value="item-1"
-                className="border rounded-xl border-white p-4"
-              >
-                <AccordionTrigger>Test</AccordionTrigger>
-                <AccordionContent></AccordionContent>
-              </AccordionItem>
-            </Accordion>
+          <TabsContent value="tech" className="w-full p-4">
+            <div className="flex flex-col border border-white p-6 rounded-xl flex-grow">
+              <div className="w-full p-4 text-[40px] font-bold text-center">
+                Tech Projects
+              </div>
+              <div className="w-full h-[400px] bg-gray-400 relative rounded-xl">
+                <Image
+                  src={Project}
+                  alt=""
+                  fill={true}
+                  className="rounded-xl border-3 border-white"
+                />
+              </div>
+              <div className="py-4 flex-1 overflow-y-auto">
+                <h2 className="text-[24px] font-bold">
+                  Email Confirmation Telegram Bot
+                </h2>
+                <br />
+                <p className="text-[18px]">
+                  This application intends to mimic the behaviour of sending
+                  confirmation email to students after they have entered their
+                  school email address into the input bar, but deployed onto
+                  Telegram Mini App via a Telegram Bot.
+                </p>
+                <br />
+                <div className="flex gap-8 py-2">
+                  {techStack.map((item, index) => (
+                    <div
+                      key={index}
+                      className="bg-[#6e6e6e] rounded-[22px] p-2"
+                    >
+                      <Image src={item} className="size-10" alt="" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </TabsContent>
-          <TabsContent value="graphic">
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem
-                value="item-1"
-                className="border rounded-xl border-white p-4"
-              >
-                <AccordionTrigger>Test</AccordionTrigger>
-                <AccordionContent></AccordionContent>
-              </AccordionItem>
-            </Accordion>
+          <TabsContent value="graphic" className="w-full p-4">
+            <div className="flex flex-col p-6 border border-white rounded-xl flex-grow">
+              <div className="w-full p-4 text-[40px] font-bold text-center">
+                Graphic Design Projects
+              </div>
+              <div className="w-full h-[400px] bg-gray-400 relative rounded-xl">
+                <Image
+                  src={Donut}
+                  alt=""
+                  fill={true}
+                  className="rounded-xl border-1 border-white"
+                />
+              </div>
+              <div className="py-4 flex-1 overflow-y-auto">
+                <h2 className="text-[24px] font-bold">
+                  Donut Project (In Progress)
+                </h2>
+                <br />
+                <p className="text-[18px]">
+                  Part of Blender tutorial by Blender Guru. Model mostly
+                  finished. Project at pause until I get a better GPU for
+                  rendering.
+                </p>
+                <br />
+                <div className="bg-[#6e6e6e] rounded-[22px] p-2 w-fit">
+                  <Image src={Blender} className="size-10" alt="" />
+                </div>
+              </div>
+            </div>
           </TabsContent>
         </Tabs>
       </div>

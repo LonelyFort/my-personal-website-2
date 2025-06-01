@@ -26,7 +26,8 @@ export default function App() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (currentSection === "") {
+    const windowWidth = window.innerWidth;
+    if (currentSection === "" && windowWidth >= 1280) {   // If on desktop
       setIsTransitioning(true);
       const timer = setTimeout(() => {
         setDisplayedSection("");
