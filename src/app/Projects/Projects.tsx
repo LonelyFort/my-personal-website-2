@@ -145,13 +145,11 @@ export default function Projects() {
               </div>
               <div className="py-4 flex-1 overflow-y-auto">
                 <h2 className="text-[24px] font-bold">
-                  Donut Project (In Progress)
+                  Donut Rendering in Blender
                 </h2>
                 <br />
                 <p className="text-[18px]">
-                  Part of Blender tutorial by Blender Guru. Model mostly
-                  finished. Project at pause until I get a better GPU for
-                  rendering.
+                  Part of Blender tutorial by Blender Guru. 
                 </p>
                 <br />
                 <div className="bg-[#6e6e6e] rounded-[22px] p-2 w-fit">

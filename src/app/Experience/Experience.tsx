@@ -31,7 +31,7 @@ export default function Experience() {
           <AccordionItem
             key={index}
             value={"item-" + index + 1}
-            className="border rounded-xl border-white p-4"
+            className="flex-col gap-4 border rounded-xl border-white p-4 mb-4"
           >
             <AccordionTrigger className="flex place-items-start">
               <div className="flex gap-8 ml-4">
@@ -47,7 +47,7 @@ export default function Experience() {
               <p className="text-[24px] pb-3">{item.description}</p>
               <div className="flex gap-8">
                 {item.tech_stack.map((item, index) => (
-                  <div key={index} className="bg-[#6e6e6e] rounded-[22px] p-2">
+                  <div key={index} className="bg-[#cdcdcd] rounded-[22px] p-2">
                     <Image src={item} className="size-15" alt="" />
                   </div>
                 ))}
@@ -65,7 +65,7 @@ export default function Experience() {
             <AccordionItem
               key={index}
               value={"item-" + index + 1}
-              className="border rounded-xl border-white p-4"
+              className="border rounded-xl border-white p-4 mb-4"
             >
               <AccordionTrigger className="flex place-items-start">
                 <div className="flex gap-4 ml-4">
@@ -83,7 +83,7 @@ export default function Experience() {
                   {item.tech_stack.map((item, index) => (
                     <div
                       key={index}
-                      className="bg-[#6e6e6e] rounded-[30%] w-fit p-2"
+                      className="bg-[#cdcdcd] rounded-[30%] w-fit p-2"
                     >
                       <Image src={item} className="size-10" alt="" />
                     </div>
